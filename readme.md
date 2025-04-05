@@ -60,33 +60,53 @@ Abaixo estão algumas capturas de tela mostrando as principais funcionalidades e
 
 ### 🏠 Tela Inicial
 
-![Tela Inicial do MemberClub](assets/screenshots/home.png)
+#### Tema Claro
+![image](https://github.com/user-attachments/assets/328d6ea3-3d4a-473d-a9df-3043a80b6a0e)
+
+
+#### Tema Escuro
+![image](https://github.com/user-attachments/assets/8fbdfac8-c8e3-4d9f-a8e0-ec9b70530ed5)
+
 *Página inicial mostrando o hero banner e os benefícios do programa de fidelidade.*
 
 ### 📝 Cadastro de Usuário
 
-![Formulário de Cadastro](assets/screenshots/cadastro.png)
+#### Tema Claro
+![image](https://github.com/user-attachments/assets/07785032-7f38-442a-b575-e1a50bbceadd)
+
+
+#### Tema Escuro
+![image](https://github.com/user-attachments/assets/7be41789-296e-4fd8-9d73-d64dd5e97008)
+
 *Formulário de cadastro para novos membros com campos para informações pessoais.*
 
 ### 💳 Cartão de Fidelidade
 
-![Cartão de Fidelidade](assets/screenshots/cartao.png)
+#### Tema Claro
+![image](https://github.com/user-attachments/assets/19b73f16-7a06-4224-b86f-c5bf2d947d55)
+
+
+#### Tema Escuro
+
+![image](https://github.com/user-attachments/assets/1cbe1271-2e61-46c8-aab0-d6deedb434a1)
+
+
 *Cartão digital de fidelidade mostrando informações do membro, saldo de pontos e QR code.*
 
 ### 📊 Histórico de Transações
 
 #### Tema Claro
-![Histórico de Transações - Tema Claro](assets/screenshots/transacoes-light.png)
+![Histórico de Transações - Tema Claro]
+![image](https://github.com/user-attachments/assets/e31874aa-4370-4003-a2b1-45e0c2b1c891)
+
 *Histórico de transações no tema claro, mostrando as adições e usos de pontos com seus detalhes.*
 
 #### Tema Escuro
-![Histórico de Transações - Tema Escuro](assets/screenshots/transacoes-dark.png)
+![Histórico de Transações - Tema Escuro]
+![image](https://github.com/user-attachments/assets/44734118-c28a-4b28-a821-bff28d3c09bf)
+
 *Histórico de transações no tema escuro, demonstrando o contraste e legibilidade das informações.*
 
-### 🔄 Troca de Tema
-
-![Demonstração da Troca de Tema](assets/screenshots/theme-toggle.png)
-*Demonstração da funcionalidade de alternância entre tema claro e escuro.*
 
 ## ⚙️ Como Executar o Projeto
 
