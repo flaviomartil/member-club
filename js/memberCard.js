@@ -106,30 +106,35 @@ class MemberCard {
     // Limpa qualquer conteúdo anterior
     qrContainer.innerHTML = '';
     
-    // Cria os dados que serão codificados no QR Code
-    const cardData = {
-      name: this.memberName,
-      cardNumber: this.cardNumber,
-      points: this.points,
-      validUntil: this.validUntil.toISOString().split('T')[0]
-    };
-    
-    // Converte os dados para JSON e depois para string
-    const qrData = JSON.stringify(cardData);
-    
-    // Cria o QR Code
     try {
-      // Usa a biblioteca QRCode global carregada via script no HTML
-      new QRCode(qrContainer, {
-        text: qrData,
-        width: 128,
-        height: 128,
-        colorDark: "#000000",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-      });
+      // Cria os dados que serão codificados no QR Code
+      const cardData = {
+        name: this.memberName,
+        cardNumber: this.cardNumber,
+        points: this.points,
+        validUntil: this.validUntil.toISOString().split('T')[0]
+      };
+      
+      // Converte os dados para JSON e depois para string
+      const qrData = JSON.stringify(cardData);
+      
+      // Verifica se a biblioteca qrcode-generator está disponível globalmente
+      if (typeof qrcode === 'undefined') {
+        console.error('Biblioteca QR Code não carregada.');
+        return;
+      }
+      
+      // Criando uma instância do QR Code (usando qrcode-generator)
+      const qr = qrcode(0, 'M'); // Tipo 0, nível de correção de erro M
+      qr.addData(qrData);
+      qr.make();
+      
+      // Renderiza o QR Code como uma imagem e adiciona ao container
+      const qrImage = qr.createImgTag(4); // Tamanho do píxel: 4
+      qrContainer.innerHTML = qrImage;
       
       this.qrCodeGenerated = true;
+      console.log('QR Code gerado com sucesso');
     } catch (error) {
       console.error('Erro ao gerar QR Code:', error);
     }

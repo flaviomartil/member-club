@@ -49,7 +49,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Registrar os outros eventos da página
   if (addPointsButton) addPointsButton.addEventListener('click', handleAddPoints);
   if (usePointsButton) usePointsButton.addEventListener('click', handleUsePoints);
-  if (ctaButton) ctaButton.addEventListener('click', scrollToRegister);
+  if (ctaButton) {
+    console.log('Registrando evento de clique no botão CTA');
+    ctaButton.addEventListener('click', scrollToRegister);
+  } else {
+    console.error('Botão CTA não encontrado');
+  }
   
   // Configurar os botões de abas para o histórico de transações
   tabButtons.forEach(button => {
@@ -287,15 +292,22 @@ async function handleUsePoints() {
 }
 
 function scrollToRegister() {
-  document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+  console.log('Rolando para a seção de cadastro...');
+  const registerSection = document.getElementById('register');
+  if (registerSection) {
+    registerSection.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    console.error('Seção de cadastro não encontrada');
+  }
 }
 
 // Funções auxiliares
 function displayMemberCard() {
   if (!memberCard) return;
   
-  cardNameElement.textContent = memberCard.name;
-  cardNumberElement.textContent = memberCard.cardNumber;
+  // Garantir que o nome apareça corretamente no cartão
+  cardNameElement.textContent = memberCard.memberName || memberCard.name;
+  cardNumberElement.textContent = memberCard.cardNumber.replace(/(\d{4})(?=\d)/g, '$1 ');
   pointsValueElement.textContent = memberCard.points;
   validUntilElement.textContent = formatDate(memberCard.validUntil);
   
@@ -305,6 +317,13 @@ function displayMemberCard() {
   
   // Esconder o formulário se o usuário já tiver um cartão
   document.getElementById('register').classList.add('hidden');
+  
+  // Garantir que o QR Code seja gerado
+  setTimeout(() => {
+    if (memberCard && typeof memberCard.generateQRCode === 'function') {
+      memberCard.generateQRCode();
+    }
+  }, 500);
 }
 
 function updatePointsDisplay() {
