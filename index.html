@@ -110,6 +110,38 @@
         </div>
       </div>
     </section>
+
+    <section id="transaction-history" class="transaction-history hidden">
+      <div class="container">
+        <h2>Histórico de Transações</h2>
+        
+        <div class="transactions-tabs">
+          <button class="tab-button active" data-tab="all">Todas</button>
+          <button class="tab-button" data-tab="add">Adições</button>
+          <button class="tab-button" data-tab="use">Utilizações</button>
+        </div>
+        
+        <div class="transactions-list">
+          <div class="empty-state hidden">
+            <p>Nenhuma transação registrada ainda.</p>
+          </div>
+          
+          <table class="transactions-table">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th>Pontos</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody id="transactions-body">
+              <!-- As transações serão inseridas aqui dinamicamente -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>

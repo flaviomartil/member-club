@@ -20,6 +20,7 @@ MemberClub é uma aplicação web de cartão fidelidade desenvolvida como projet
 - **TypeScript**: Tipagem estática para maior segurança do código
 - **LocalStorage**: Armazenamento de dados no navegador
 - **Git e GitHub**: Controle de versão e colaboração
+- **Jest**: Framework para testes automatizados
 
 ## 🏗️ Estrutura do Projeto
 
@@ -37,12 +38,19 @@ member-club/
 │   ├── main.js           # Código principal
 │   ├── memberCard.js     # Classe do cartão fidelidade
 │   ├── utils.js          # Funções utilitárias
+│   ├── api.js            # Simulação de API
+│   ├── transactionHistory.js # Gerenciamento de transações
 ├── ts/                   # Arquivos TypeScript
 │   ├── types/            # Definições de tipos
 │   ├── src/              # Código-fonte TypeScript
+├── tests/                # Testes automatizados
+│   ├── memberCard.test.js
+│   ├── transactionHistory.test.js
+│   ├── api.test.js
 ├── index.html            # Página principal
 ├── package.json          # Configurações do projeto
 ├── tsconfig.json         # Configurações do TypeScript
+├── jest.config.js        # Configuração do Jest
 ├── README.md             # Documentação
 ```
 
@@ -50,7 +58,7 @@ member-club/
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/member-club.git
+   git clone git@github.com:flaviomartil/member-club.git
    cd member-club
    ```
 
@@ -70,6 +78,11 @@ member-club/
    # ou use o Live Server do VSCode
    ```
 
+5. **Execute os testes automatizados**
+   ```bash
+   npm test
+   ```
+
 ## 📝 Objetivos do Projeto
 
 Este projeto implementa:
@@ -81,41 +94,31 @@ Este projeto implementa:
 - [x] Cadastro de usuário com validação de formulário
 - [x] Funcionalidades básicas do cartão (adicionar/usar pontos)
 - [x] Sistema de níveis baseados em pontos acumulados (nível Premium no cartão)
-- [ ] Registro e exibição do histórico de transações
+- [x] Registro e exibição do histórico de transações
 - [x] Armazenamento local dos dados do usuário
-- [ ] Simulação de API com Promises/Async-Await
-- [ ] Implementação completa do TypeScript
-- [ ] Testes automatizados
-- [ ] Integração com backend real (opcional)
-- [ ] PWA - Progressive Web App (opcional)
+- [x] Simulação de API com Promises/Async-Await
+- [x] Implementação parcial do TypeScript
+- [x] Testes automatizados
+- [ ] Adicionar ESLint e Prettier para padronização de código
+- [ ] Melhorar a acessibilidade da aplicação
+- [ ] Adicionar suporte a múltiplos idiomas
+- [ ] - **Código QR**: Geração de código QR para o cartão fidelidade
+- [ ] - **Personalização de Tema**: Alternância entre tema claro e escuro
 
-## 🌟 Recursos Planejados
-
-- **Personalização de Tema**: Alternância entre tema claro e escuro
-- **Múltiplos Cartões**: Possibilidade de gerenciar vários cartões fidelidade
-- **Código QR**: Geração de código QR para o cartão fidelidade
-- **Integração com backend**: Persistência de dados em servidor remoto
-
-## 🔄 Próximos Passos
-
-- Adicionar ESLint e Prettier para padronização de código
-- Implementar testes unitários e de integração
-- Melhorar a acessibilidade da aplicação
-- Criar uma versão PWA (Progressive Web App)
-- Implementar histórico de transações
-- Criar simulação de API usando Promises/Async-Await
-- Desenvolver versões TypeScript dos componentes JavaScript
 
 ## 📚 Conceitos Técnicos Aplicados
 
 - HTML Semântico
 - CSS Avançado (Flexbox, Grid, Animations)
 - JavaScript Moderno (ES6+)
-- TypeScript e Tipagem Estática (configuração inicial)
+- Programação Assíncrona (Promises, Async/Await)
+- TypeScript e Tipagem Estática
 - Armazenamento Local (LocalStorage)
 - Gerenciamento de Estado
 - Responsividade e Design Mobile-First
 - Modularização de Código
+- Simulação de API
+- Testes Unitários com Jest
 
 ## 📄 Licença
 
