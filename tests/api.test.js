@@ -137,8 +137,8 @@ describe('MemberClubAPI', () => {
     expect(history[1].id).toBe('2');
   });
   
-  test('deve lançar erro quando Math.random retorna < 0.1', async () => {
-    mockRandomValue = 0.05; // Valor que causará erro (< 0.1)
+  test('não deve lançar erro mesmo quando Math.random retorna um valor baixo', async () => {
+    mockRandomValue = 0.05; // Valor baixo, mas não causará erro pois desabilitamos essa funcionalidade
     
     const userData = {
       name: 'Erro Teste',
@@ -147,6 +147,9 @@ describe('MemberClubAPI', () => {
       birthdate: '1995-01-01'
     };
     
-    await expect(api.registerUser(userData)).rejects.toThrow();
+    // Verificar que não rejeita, já que desabilitamos os erros simulados
+    const response = await api.registerUser(userData);
+    expect(response).toHaveProperty('name', userData.name);
+    expect(response).toHaveProperty('email', userData.email);
   });
 }); 
