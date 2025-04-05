@@ -54,6 +54,40 @@ member-club/
 ├── README.md             # Documentação
 ```
 
+## 📸 Screenshots do Projeto
+
+Abaixo estão algumas capturas de tela mostrando as principais funcionalidades e interfaces do MemberClub:
+
+### 🏠 Tela Inicial
+
+![Tela Inicial do MemberClub](assets/screenshots/home.png)
+*Página inicial mostrando o hero banner e os benefícios do programa de fidelidade.*
+
+### 📝 Cadastro de Usuário
+
+![Formulário de Cadastro](assets/screenshots/cadastro.png)
+*Formulário de cadastro para novos membros com campos para informações pessoais.*
+
+### 💳 Cartão de Fidelidade
+
+![Cartão de Fidelidade](assets/screenshots/cartao.png)
+*Cartão digital de fidelidade mostrando informações do membro, saldo de pontos e QR code.*
+
+### 📊 Histórico de Transações
+
+#### Tema Claro
+![Histórico de Transações - Tema Claro](assets/screenshots/transacoes-light.png)
+*Histórico de transações no tema claro, mostrando as adições e usos de pontos com seus detalhes.*
+
+#### Tema Escuro
+![Histórico de Transações - Tema Escuro](assets/screenshots/transacoes-dark.png)
+*Histórico de transações no tema escuro, demonstrando o contraste e legibilidade das informações.*
+
+### 🔄 Troca de Tema
+
+![Demonstração da Troca de Tema](assets/screenshots/theme-toggle.png)
+*Demonstração da funcionalidade de alternância entre tema claro e escuro.*
+
 ## ⚙️ Como Executar o Projeto
 
 1. **Clone o repositório**
