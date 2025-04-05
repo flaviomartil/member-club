@@ -334,25 +334,43 @@ input::placeholder {
   border-bottom: 1px solid var(--border-color);
 }
 
+/* Melhorar visibilidade dos cabeçalhos em ambos os temas */
 .transactions-table thead {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--bg-secondary);
+  border-bottom: 2px solid var(--border-color);
 }
 
 .transactions-table thead th {
-  color: white !important;
+  color: var(--text-color) !important; /* Cor padrão para o tema claro */
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 12px 10px;
+  font-size: 1.05em;
+}
+
+/* Estilo específico para o tema claro */
+body:not([data-theme="dark"]) .transactions-table thead {
+  background-color: #f0f0f0; /* Cinza claro para o tema claro */
+  border-bottom: 2px solid #d0d0d0;
+}
+
+body:not([data-theme="dark"]) .transactions-table thead th {
+  color: #333333 !important; /* Texto escuro para o tema claro */
   font-weight: bold;
 }
 
-/* Adicionar regra específica para garantir visibilidade no modo escuro */
+/* Manter o tema escuro com texto branco e fundo azul */
 [data-theme="dark"] .transactions-table thead {
   background-color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-dark);
 }
 
 [data-theme="dark"] .transactions-table thead th {
   color: white !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }
 
+/* Adicionar regra específica para garantir visibilidade no modo escuro */
 [data-theme="dark"] #empty-state p {
   color: var(--text-color);
 }
