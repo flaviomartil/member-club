@@ -62,8 +62,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       const tabType = button.getAttribute('data-tab');
       
       // Ativar o botão clicado e desativar os outros
-      tabButtons.forEach(btn => btn.classList.remove('active-tab'));
+      tabButtons.forEach(btn => {
+        btn.classList.remove('active-tab');
+        btn.classList.remove('active');
+      });
       button.classList.add('active-tab');
+      button.classList.add('active');
       
       // Exibir as transações do tipo selecionado
       displayTransactions(tabType);
@@ -359,9 +363,6 @@ function saveCardToLocalStorage() {
 function displayTransactions(tabType) {
   if (!transactionHistory) return;
   
-  // Limpar o conteúdo atual
-  transactionsBody.innerHTML = '';
-  
   // Obter as transações filtradas
   let transactions;
   
@@ -372,14 +373,22 @@ function displayTransactions(tabType) {
   }
   
   // Verificar se existem transações
+  const tableElement = document.querySelector('.transactions-table');
+  
   if (transactions.length === 0) {
+    // Quando não há transações, limpar e ocultar a tabela
     transactionsBody.innerHTML = '';
+    if (tableElement) tableElement.classList.add('hidden');
     emptyState.classList.remove('hidden');
     return;
   }
   
-  // Esconder o estado vazio
+  // Se há transações, mostrar a tabela e esconder o estado vazio
+  if (tableElement) tableElement.classList.remove('hidden');
   emptyState.classList.add('hidden');
+  
+  // Limpar o conteúdo atual
+  transactionsBody.innerHTML = '';
   
   // Ordenar transações da mais recente para a mais antiga
   transactions.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
@@ -408,12 +417,17 @@ function displayTransactions(tabType) {
 
 // Funções para API
 function displayTransactionsFromApi(transactions) {
+  const tableElement = document.querySelector('.transactions-table');
+  
   if (!transactions || transactions.length === 0) {
+    // Ocultar a tabela quando não há transações
+    if (tableElement) tableElement.classList.add('hidden');
     emptyState.classList.remove('hidden');
     return;
   }
   
-  // Esconder o estado vazio
+  // Se há transações, mostrar a tabela e esconder o estado vazio
+  if (tableElement) tableElement.classList.remove('hidden');
   emptyState.classList.add('hidden');
   
   // Limpar o conteúdo atual

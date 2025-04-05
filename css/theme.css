@@ -101,6 +101,88 @@ header, footer {
   padding: 4rem 0;
 }
 
+/* Escurecer o fundo do formulário no modo dark */
+[data-theme="dark"] .register {
+  background-color: #121212 !important;
+}
+
+[data-theme="dark"] #register-form {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Destacar os campos do formulário no modo dark */
+[data-theme="dark"] .form-group {
+  margin-bottom: 20px;
+}
+
+[data-theme="dark"] .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #121212 !important;
+  font-weight: bold;
+  font-size: 1.05em;
+}
+
+[data-theme="dark"] .form-group input {
+  background-color: #ffffff !important;
+  color: #121212 !important;
+  border: 1px solid #ced4da !important;
+  padding: 10px 12px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .form-group input::placeholder {
+  color: #6c757d !important;
+}
+
+[data-theme="dark"] .form-group input:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+/* Ajustar alinhamento do checkbox e seu label */
+[data-theme="dark"] .form-group.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[data-theme="dark"] .form-group.checkbox input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+  margin-top: 0;
+}
+
+[data-theme="dark"] .form-group.checkbox label {
+  display: inline;
+  color: #121212 !important;
+  margin-bottom: 0;
+}
+
+/* Sobrescrever apenas para checkbox no tema dark */
+[data-theme="dark"] label[for="terms"] {
+  color: #121212 !important;
+}
+
+/* Botão de cadastro no tema dark */
+[data-theme="dark"] .submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 1.05em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
 .member-card {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -262,6 +344,19 @@ input::placeholder {
   font-weight: bold;
 }
 
+/* Adicionar regra específica para garantir visibilidade no modo escuro */
+[data-theme="dark"] .transactions-table thead {
+  background-color: var(--primary-color);
+}
+
+[data-theme="dark"] .transactions-table thead th {
+  color: white !important;
+}
+
+[data-theme="dark"] #empty-state p {
+  color: var(--text-color);
+}
+
 /* Classes para transações */
 .transaction-add {
   color: var(--transaction-add-color) !important; /* Verde para adição de pontos */
@@ -334,8 +429,29 @@ input::placeholder {
 }
 
 [data-theme="dark"] .form-group label {
-  color: var(--text-color);
+  color: var(--text-color) !important;
   font-weight: 500;
+}
+
+/* Garantir visibilidade dos labels de formulário - usando cores mais fortes */
+[data-theme="dark"] label[for="name"],
+[data-theme="dark"] label[for="email"],
+[data-theme="dark"] label[for="phone"],
+[data-theme="dark"] label[for="birthdate"],
+[data-theme="dark"] label[for="terms"] {
+  color: #121212 !important;
+  font-weight: bold;
+}
+
+/* Regra geral para todos os labels no tema dark */
+[data-theme="dark"] #register-form label {
+  color: #121212 !important;
+}
+
+/* Garantir que qualquer label dentro do formulário de registro seja visível */
+[data-theme="dark"] #register-form label {
+  color: #121212 !important;
+  font-weight: bold;
 }
 
 /* Garantir que os checkboxes sejam visíveis */
@@ -352,4 +468,56 @@ input::placeholder {
 
 [data-theme="dark"] .transactions-table td {
   color: var(--text-color);
+}
+
+/* Inputs específicos com cores para tema escuro */
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="tel"],
+[data-theme="dark"] input[type="date"],
+[data-theme="dark"] input[type="checkbox"] {
+  color: var(--input-text) !important;
+  background-color: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+}
+
+/* Melhorias no contraste do texto da mensagem "Nenhuma transação encontrada" */
+[data-theme="dark"] #empty-state p {
+  color: var(--text-color) !important;
+}
+
+/* Garantir que o cabeçalho da tabela tenha contraste adequado */
+[data-theme="dark"] .transactions-table th {
+  color: white !important;
+  background-color: var(--primary-color) !important;
+}
+
+/* Melhorar contraste das mensagens vazias */
+[data-theme="dark"] .empty-state {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .empty-state p {
+  color: var(--text-color) !important;
+  font-weight: 500;
+  opacity: 1;
+}
+
+/* Garantir contraste para a mensagem vazia usando seletor mais específico */
+[data-theme="dark"] div.empty-state p[data-i18n="transactions.empty"] {
+  color: #e0e0e0 !important;
+  font-weight: bold !important;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 4px;
+  margin: 20px 0;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.1em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Reforçar a visibilidade da mensagem vazia para qualquer texto dentro de empty-state */
+[data-theme="dark"] .empty-state * {
+  color: #e0e0e0 !important;
 } 

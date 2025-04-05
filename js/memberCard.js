@@ -77,7 +77,14 @@ class MemberCard {
    * Atualiza o DOM com os dados do cartão
    */
   updateCardDisplay() {
-    document.getElementById('card-name').textContent = this.memberName;
+    const cardNameElement = document.getElementById('card-name');
+    
+    // Remover o atributo data-i18n para evitar que seja traduzido
+    cardNameElement.removeAttribute('data-i18n');
+    
+    // Atualizar o texto com o nome do membro
+    cardNameElement.textContent = this.memberName;
+    
     document.getElementById('card-number').textContent = this.formatCardNumber();
     document.getElementById('points-value').textContent = this.points;
     document.getElementById('valid-until').textContent = this.formatDate(this.validUntil);

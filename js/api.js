@@ -8,9 +8,9 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Simulação de erro randômico (1 em 10 chance)
+// Simulação de erro randômico (desativada para melhorar a experiência do usuário)
 function randomError() {
-  return Math.random() < 0.1;
+  return false; // Desabilita completamente os erros simulados
 }
 
 /**
@@ -31,11 +31,6 @@ export class MemberClubAPI {
   async registerUser(userData) {
     // Simular delay de rede
     await delay(this.baseDelay + Math.random() * 500);
-    
-    // Simular erro
-    if (randomError()) {
-      throw new Error('Erro ao registrar usuário. Tente novamente.');
-    }
     
     // Simular resposta do servidor
     const cardNumber = this.generateCardNumber();
@@ -67,11 +62,6 @@ export class MemberClubAPI {
     
     // Simular delay de rede
     await delay(this.baseDelay + Math.random() * 300);
-    
-    // Simular erro
-    if (randomError()) {
-      throw new Error('Erro ao adicionar pontos. Tente novamente.');
-    }
     
     // Obter saldo atual (simula consulta ao banco de dados)
     const currentBalance = await this.getCardBalance(cardNumber);
@@ -105,11 +95,6 @@ export class MemberClubAPI {
     
     // Simular delay de rede
     await delay(this.baseDelay + Math.random() * 300);
-    
-    // Simular erro
-    if (randomError()) {
-      throw new Error('Erro ao utilizar pontos. Tente novamente.');
-    }
     
     // Obter saldo atual (simula consulta ao banco de dados)
     const currentBalance = await this.getCardBalance(cardNumber);
@@ -148,11 +133,6 @@ export class MemberClubAPI {
     // Simular delay de rede
     await delay(this.baseDelay / 2 + Math.random() * 200);
     
-    // Simular erro
-    if (randomError()) {
-      throw new Error('Erro ao verificar saldo. Tente novamente.');
-    }
-    
     // Simulação de busca em banco de dados
     // Neste caso, vamos obter do localStorage para manter a consistência
     try {
@@ -184,11 +164,6 @@ export class MemberClubAPI {
     
     // Simular delay de rede
     await delay(this.baseDelay + Math.random() * 400);
-    
-    // Simular erro
-    if (randomError()) {
-      throw new Error('Erro ao obter histórico. Tente novamente.');
-    }
     
     // Simulação de busca em banco de dados
     // Neste caso, vamos obter do localStorage para manter a consistência
