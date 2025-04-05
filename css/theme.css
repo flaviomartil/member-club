@@ -1,0 +1,322 @@
+/**
+ * theme.css - Estilos para temas claro e escuro
+ */
+
+:root {
+  /* Variáveis de cores para o tema claro (padrão) */
+  --bg-color: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text-color: #212529;
+  --text-secondary: #495057;
+  --primary-color: #007bff;
+  --primary-dark: #0069d9;
+  --primary-light: #cce5ff;
+  --secondary-color: #6c757d;
+  --border-color: #dee2e6;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --input-bg: #ffffff;
+  --input-text: #212529;
+  --input-border: #ced4da;
+  --input-focus-border: #80bdff;
+  --input-focus-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  --benefits-bg: #f8f9fa;
+  --register-bg: #f0f0f0;
+  --card-bg: linear-gradient(135deg, #2c3e50, #34495e);
+  --card-text: #ffffff;
+  --transaction-history-bg: #f0f0f0;
+  --transaction-add-color: #28a745;
+  --transaction-use-color: #dc3545;
+  
+  /* Variáveis de transição */
+  --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Tema escuro */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-color: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --primary-color: #2196f3;
+  --primary-dark: #0d47a1;
+  --primary-light: #4fc3f7;
+  --secondary-color: #90a4ae;
+  --border-color: #424242;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --input-bg: #2c2c2c;
+  --input-text: #f8f9fa;
+  --input-border: #424242;
+  --input-focus-border: #2196f3;
+  --input-focus-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+  --benefits-bg: #1a1a1a;
+  --register-bg: #1a1a1a;
+  --card-bg: linear-gradient(135deg, #1a237e, #0d47a1);
+  --card-text: #ffffff;
+  --transaction-history-bg: #1a1a1a;
+  --transaction-add-color: #4caf50;
+  --transaction-use-color: #f44336;
+}
+
+/* Aplicando cores aos elementos */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: var(--theme-transition);
+}
+
+/* Garantir que header seja visível */
+header, footer {
+  background-color: var(--primary-color);
+  color: white;
+  transition: var(--theme-transition);
+}
+
+/* Garantir que a hero section receba as cores do tema */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  transition: var(--theme-transition);
+  padding: 4rem 0;
+}
+
+.hero h2, .hero p {
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Seções do conteúdo principal */
+.benefits {
+  background-color: var(--benefits-bg);
+  color: var(--text-color);
+  transition: var(--theme-transition);
+  padding: 4rem 0;
+}
+
+.register {
+  background-color: var(--register-bg);
+  color: var(--text-color);
+  transition: var(--theme-transition);
+  padding: 4rem 0;
+}
+
+.member-card {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: var(--theme-transition);
+  padding: 4rem 0;
+}
+
+.transaction-history {
+  background-color: var(--transaction-history-bg);
+  color: var(--text-color);
+  transition: var(--theme-transition);
+  padding: 4rem 0;
+}
+
+/* Cartões e benefícios */
+.card, .benefit-card {
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  border-color: var(--border-color);
+  box-shadow: var(--card-shadow);
+  transition: var(--theme-transition);
+}
+
+/* Estilos específicos para o cartão de membro */
+.card {
+  background: var(--card-bg);
+  color: var(--card-text);
+}
+
+/* Transaction History */
+.transaction-history h2,
+.transaction-history .tab-button,
+.transactions-table th, 
+.transactions-table td {
+  color: var(--text-color);
+  transition: var(--theme-transition);
+}
+
+/* Adicionar cor de fundo para o body completo, incluindo área abaixo do rodapé */
+html {
+  background-color: var(--bg-color);
+  min-height: 100%;
+  transition: var(--theme-transition);
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Melhorias nos elementos de input */
+input, select, textarea, button {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  transition: var(--theme-transition);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: var(--input-focus-shadow);
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Botões principais */
+.submit-button, .cta-button, .card-button {
+  background-color: var(--primary-color);
+  color: white;
+  transition: var(--theme-transition);
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover, .cta-button:hover, .card-button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Estilização do botão de alternância de tema */
+#theme-toggle {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilização do seletor de idiomas */
+.settings-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+#language-selector {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  font-size: 0.9rem;
+  cursor: pointer;
+  appearance: menulist-button;
+  min-width: 140px;
+}
+
+#language-selector:focus {
+  border-color: var(--input-focus-border);
+  outline: none;
+  box-shadow: var(--input-focus-shadow);
+}
+
+#language-selector option {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+}
+
+/* Tabela de transações */
+.transactions-table {
+  color: var(--text-color);
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table th, 
+.transactions-table td {
+  border-color: var(--border-color);
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.transactions-table thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.transactions-table thead th {
+  color: white;
+}
+
+/* Classes para transações */
+.transaction-add {
+  color: var(--transaction-add-color) !important; /* Verde para adição de pontos */
+  font-weight: bold;
+}
+
+.transaction-use {
+  color: var(--transaction-use-color) !important; /* Vermelho para uso de pontos */
+  font-weight: bold;
+}
+
+/* QR Code */
+.card-qrcode {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  max-width: 150px;
+  max-height: 150px;
+  margin: 1rem auto 0;
+}
+
+/* Melhorias no contraste para elementos com fundo escuro */
+[data-theme="dark"] label,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] p {
+  color: var(--text-color);
+}
+
+/* Botões de aba de transações */
+.tab-button {
+  padding: 8px 16px;
+  margin: 0 4px;
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  transition: var(--theme-transition);
+}
+
+.tab-button.active, 
+.tab-button.active-tab {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Garantir contraste nas abas de transações */
+[data-theme="dark"] .tab-button {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .tab-button.active,
+[data-theme="dark"] .tab-button.active-tab {
+  background-color: var(--primary-color);
+  color: white;
+} 

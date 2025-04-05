@@ -1,0 +1,111 @@
+{
+  "common": {
+    "appName": "Member Club",
+    "loading": "Carregando...",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "error": "Erro",
+    "success": "Sucesso"
+  },
+  "app": {
+    "name": "Member Club"
+  },
+  "nav": {
+    "home": "Início",
+    "benefits": "Benefícios",
+    "register": "Cadastre-se"
+  },
+  "home": {
+    "hero": {
+      "title": "Seu Cartão Fidelidade Digital",
+      "subtitle": "Acumule pontos e ganhe benefícios exclusivos!",
+      "cta": "Comece Agora"
+    }
+  },
+  "benefits": {
+    "title": "Benefícios",
+    "cards": {
+      "points": {
+        "title": "Acumule Pontos",
+        "description": "Ganhe pontos a cada compra realizada."
+      },
+      "discounts": {
+        "title": "Descontos Exclusivos",
+        "description": "Aproveite descontos especiais para membros."
+      },
+      "rewards": {
+        "title": "Troque por Prêmios",
+        "description": "Use seus pontos para resgatar prêmios exclusivos."
+      }
+    },
+    "card1": {
+      "title": "Acumule Pontos",
+      "description": "Ganhe pontos em cada compra e troque por produtos e serviços"
+    },
+    "card2": {
+      "title": "Descontos Exclusivos",
+      "description": "Membros têm acesso a descontos especiais e ofertas exclusivas"
+    },
+    "card3": {
+      "title": "Eventos Especiais",
+      "description": "Seja convidado para eventos exclusivos para membros"
+    }
+  },
+  "register": {
+    "title": "Cadastre-se no Member Club",
+    "form": {
+      "name": "Nome Completo",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "birthdate": "Data de Nascimento",
+      "terms": "Li e concordo com os termos de uso",
+      "submit": "Cadastrar"
+    }
+  },
+  "memberCard": {
+    "title": "Seu Cartão de Membro",
+    "cardNumber": "Número do Cartão",
+    "points": "Pontos",
+    "validUntil": "Válido até",
+    "cardType": "Tipo de Cartão",
+    "standard": "Standard",
+    "premium": "Premium",
+    "addPoints": "Adicionar Pontos",
+    "usePoints": "Usar Pontos",
+    "actions": {
+      "addPoints": "Adicionar Pontos",
+      "usePoints": "Utilizar Pontos"
+    }
+  },
+  "transactions": {
+    "title": "Histórico de Transações",
+    "tabs": {
+      "all": "Todas",
+      "add": "Adições",
+      "use": "Utilizações"
+    },
+    "table": {
+      "date": "Data",
+      "type": "Tipo",
+      "points": "Pontos",
+      "description": "Descrição"
+    },
+    "empty": "Nenhuma transação encontrada",
+    "types": {
+      "add": "Adição",
+      "use": "Utilização"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Member Club. Todos os direitos reservados.",
+    "privacyPolicy": "Política de Privacidade",
+    "terms": "Termos de Uso"
+  },
+  "notifications": {
+    "registerSuccess": "Cadastro realizado com sucesso!",
+    "addPointsSuccess": "{points} pontos adicionados com sucesso!",
+    "usePointsSuccess": "{points} pontos utilizados com sucesso!",
+    "error": "Ocorreu um erro. Por favor, tente novamente."
+  }
+} 

@@ -442,4 +442,123 @@ footer {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Acessibilidade */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Melhorias de foco para acessibilidade via teclado */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Melhoria de contraste para texto pequeno */
+small, .small-text {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Estado de foco para formulários */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+  outline: none;
+}
+
+/* Melhorias para acessibilidade de botões */
+button, 
+.button,
+[role="button"] {
+  cursor: pointer;
+}
+
+button:disabled,
+.button:disabled,
+[role="button"][aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Estilos para notificações acessíveis */
+.notifications-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 300px;
+  max-width: 100%;
+}
+
+.notification {
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 4px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 10px;
+  padding: 15px;
+  animation: slideIn 0.3s ease-out forwards;
+  overflow: hidden;
+}
+
+.notification-success {
+  border-left-color: #28a745;
+}
+
+.notification-error {
+  border-left-color: #dc3545;
+}
+
+.notification-warning {
+  border-left-color: #ffc107;
+}
+
+.notification-info {
+  border-left-color: var(--primary-color);
+}
+
+.notification-title {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.notification-message {
+  margin: 0;
+}
+
+/* Aumentar tamanho do QR code para melhor visualização */
+.card-qrcode {
+  width: 150px;
+  height: 150px;
 } 

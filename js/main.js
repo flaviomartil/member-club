@@ -1,8 +1,9 @@
 // Importando módulos
-import { MemberCard } from './memberCard.js';
+import MemberCard from './memberCard.js';
 import { TransactionHistory } from './transactionHistory.js';
 import { MemberClubAPI } from './api.js';
 import { formatDate, validateForm, showNotification } from './utils.js';
+import { initI18n } from './i18n.js';
 
 // Elementos DOM
 const registerForm = document.getElementById('register-form');
@@ -28,30 +29,41 @@ const api = new MemberClubAPI(); // Instância da API simulada
 let loadingIndicator = null;
 
 // Event listeners
-document.addEventListener('DOMContentLoaded', init);
-registerForm.addEventListener('submit', handleRegistration);
-addPointsButton.addEventListener('click', handleAddPoints);
-usePointsButton.addEventListener('click', handleUsePoints);
-ctaButton.addEventListener('click', scrollToRegister);
-
-// Adicionar event listeners para as abas de transações
-tabButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Remover a classe 'active' de todos os botões
-    tabButtons.forEach(btn => btn.classList.remove('active'));
-    
-    // Adicionar a classe 'active' ao botão clicado
-    button.classList.add('active');
-    
-    // Filtrar as transações de acordo com a aba selecionada
-    const tabType = button.getAttribute('data-tab');
-    displayTransactions(tabType);
-  });
-});
-
-// Inicialização
-async function init() {
+document.addEventListener('DOMContentLoaded', async () => {
+  console.log('Inicializando aplicação...');
+  
+  // Inicializar o sistema de internacionalização
+  await initI18n();
+  
+  // Continuar com a inicialização do restante da aplicação
   createLoadingIndicator();
+  
+  // Registrar o manipulador de eventos para o formulário de cadastro
+  if (registerForm) {
+    console.log('Registrando evento de submit no formulário');
+    registerForm.addEventListener('submit', handleRegistration);
+  } else {
+    console.error('Formulário de cadastro não encontrado');
+  }
+  
+  // Registrar os outros eventos da página
+  if (addPointsButton) addPointsButton.addEventListener('click', handleAddPoints);
+  if (usePointsButton) usePointsButton.addEventListener('click', handleUsePoints);
+  if (ctaButton) ctaButton.addEventListener('click', scrollToRegister);
+  
+  // Configurar os botões de abas para o histórico de transações
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const tabType = button.getAttribute('data-tab');
+      
+      // Ativar o botão clicado e desativar os outros
+      tabButtons.forEach(btn => btn.classList.remove('active-tab'));
+      button.classList.add('active-tab');
+      
+      // Exibir as transações do tipo selecionado
+      displayTransactions(tabType);
+    });
+  });
   
   // Verificar se existe um cartão salvo no localStorage
   const savedCard = localStorage.getItem('memberCard');
@@ -61,16 +73,16 @@ async function init() {
       showLoading();
       
       const cardData = JSON.parse(savedCard);
-      memberCard = new MemberCard(
-        cardData.name,
-        cardData.email,
-        cardData.phone,
-        cardData.birthdate
-      );
-      
-      memberCard.points = cardData.points;
-      memberCard.cardNumber = cardData.cardNumber;
-      memberCard.validUntil = new Date(cardData.validUntil);
+      memberCard = new MemberCard({
+        name: cardData.name,
+        email: cardData.email,
+        phone: cardData.phone,
+        birthdate: cardData.birthdate,
+        points: cardData.points,
+        cardNumber: cardData.cardNumber,
+        validUntil: new Date(cardData.validUntil),
+        createdAt: new Date(cardData.createdAt || Date.now())
+      });
       
       // Inicializar o histórico de transações
       transactionHistory = new TransactionHistory(memberCard.cardNumber);
@@ -99,7 +111,7 @@ async function init() {
       localStorage.removeItem('memberCard');
     }
   }
-}
+});
 
 // Buscar histórico de transações via API
 async function fetchTransactionHistory() {
@@ -129,6 +141,7 @@ async function fetchTransactionHistory() {
 // Manipuladores de eventos
 async function handleRegistration(event) {
   event.preventDefault();
+  console.log('Formulário de cadastro enviado');
   
   const formData = new FormData(registerForm);
   const userData = {
@@ -138,23 +151,27 @@ async function handleRegistration(event) {
     birthdate: formData.get('birthdate')
   };
   
+  console.log('Dados do usuário:', userData);
+  
   if (validateForm(userData)) {
     try {
       showLoading();
+      console.log('Enviando dados para API...');
       
       // Registrar usuário via API simulada
       const response = await api.registerUser(userData);
+      console.log('Resposta da API:', response);
       
       // Criar o objeto de cartão com os dados da resposta
-      memberCard = new MemberCard(
-        response.name,
-        response.email,
-        response.phone,
-        response.birthdate
-      );
-      
-      memberCard.cardNumber = response.cardNumber;
-      memberCard.validUntil = new Date(response.validUntil);
+      memberCard = new MemberCard({
+        name: response.name,
+        email: response.email,
+        phone: response.phone,
+        birthdate: response.birthdate,
+        cardNumber: response.cardNumber,
+        validUntil: new Date(response.validUntil),
+        createdAt: new Date()
+      });
       
       // Inicializar o histórico de transações
       transactionHistory = new TransactionHistory(memberCard.cardNumber);
@@ -187,9 +204,11 @@ async function handleRegistration(event) {
       
     } catch (error) {
       hideLoading();
+      console.error('Erro durante o cadastro:', error);
       showNotification(error.message || 'Erro ao realizar cadastro. Tente novamente.', 'error');
     }
   } else {
+    console.warn('Formulário inválido');
     showNotification('Por favor, preencha todos os campos corretamente.', 'error');
   }
 }
@@ -311,7 +330,8 @@ function saveCardToLocalStorage() {
     birthdate: memberCard.birthdate,
     points: memberCard.points,
     cardNumber: memberCard.cardNumber,
-    validUntil: memberCard.validUntil.toISOString()
+    validUntil: memberCard.validUntil.toISOString(),
+    createdAt: memberCard.createdAt.toISOString()
   };
   
   localStorage.setItem('memberCard', JSON.stringify(cardData));

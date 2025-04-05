@@ -3,153 +3,195 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Member Club - Seu cartão de fidelidade digital para acumular pontos e ganhar benefícios exclusivos">
   <title>Member Club - Cartão Fidelidade</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  
+  <!-- CSS Styles -->
+  <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/notifications.css">
+  <link rel="stylesheet" href="css/theme.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <header role="banner">
     <div class="container">
-      <h1>Member Club</h1>
-      <nav>
+      <h1 data-i18n="app.name">Member Club</h1>
+      <nav role="navigation" aria-label="Menu principal">
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#benefits">Benefícios</a></li>
-          <li><a href="#register">Cadastro</a></li>
+          <li><a href="#home" data-i18n="nav.home">Home</a></li>
+          <li><a href="#benefits" data-i18n="nav.benefits">Benefícios</a></li>
+          <li><a href="#register" data-i18n="nav.register">Cadastro</a></li>
         </ul>
       </nav>
+      <div class="settings-controls">
+        <select id="language-selector" aria-label="Selecionar idioma">
+          <!-- Opções de idioma serão adicionadas via JavaScript -->
+        </select>
+        <button id="theme-toggle" aria-label="Alternar tema">
+          <span id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
+  <main id="main-content" role="main">
+    <section id="home" class="hero" aria-labelledby="hero-title">
       <div class="container">
-        <h2>Seu Cartão Fidelidade Digital</h2>
-        <p>Acumule pontos e ganhe benefícios exclusivos!</p>
-        <button class="cta-button">Comece Agora</button>
+        <h2 id="hero-title" data-i18n="home.hero.title">Seu Cartão Fidelidade Digital</h2>
+        <p data-i18n="home.hero.subtitle">Acumule pontos e ganhe benefícios exclusivos!</p>
+        <button class="cta-button" data-i18n="home.hero.cta">Comece Agora</button>
       </div>
     </section>
 
-    <section id="benefits" class="benefits">
+    <section id="benefits" class="benefits" aria-labelledby="benefits-title">
       <div class="container">
-        <h2>Benefícios do Member Club</h2>
-        <div class="benefits-grid">
-          <div class="benefit-card">
-            <img src="assets/icons/points.svg" alt="Pontos">
-            <h3>Acumule Pontos</h3>
-            <p>Ganhe pontos a cada compra realizada.</p>
+        <h2 id="benefits-title" data-i18n="benefits.title">Benefícios do Member Club</h2>
+        <div class="benefits-grid" role="list">
+          <div class="benefit-card" role="listitem">
+            <img src="assets/icons/points.svg" alt="" aria-hidden="true">
+            <h3 data-i18n="benefits.cards.points.title">Acumule Pontos</h3>
+            <p data-i18n="benefits.cards.points.description">Ganhe pontos a cada compra realizada.</p>
           </div>
-          <div class="benefit-card">
-            <img src="assets/icons/discount.svg" alt="Descontos">
-            <h3>Descontos Exclusivos</h3>
-            <p>Aproveite descontos especiais para membros.</p>
+          <div class="benefit-card" role="listitem">
+            <img src="assets/icons/discount.svg" alt="" aria-hidden="true">
+            <h3 data-i18n="benefits.cards.discounts.title">Descontos Exclusivos</h3>
+            <p data-i18n="benefits.cards.discounts.description">Aproveite descontos especiais para membros.</p>
           </div>
-          <div class="benefit-card">
-            <img src="assets/icons/rewards.svg" alt="Prêmios">
-            <h3>Troque por Prêmios</h3>
-            <p>Use seus pontos para resgatar prêmios exclusivos.</p>
+          <div class="benefit-card" role="listitem">
+            <img src="assets/icons/rewards.svg" alt="" aria-hidden="true">
+            <h3 data-i18n="benefits.cards.rewards.title">Troque por Prêmios</h3>
+            <p data-i18n="benefits.cards.rewards.description">Use seus pontos para resgatar prêmios exclusivos.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="register" class="register">
+    <section id="register" class="register" aria-labelledby="register-title">
       <div class="container">
-        <h2>Cadastre-se no Member Club</h2>
-        <form id="register-form">
+        <h2 id="register-title" data-i18n="register.title">Cadastre-se no Member Club</h2>
+        <form id="register-form" aria-describedby="form-description">
+          <p id="form-description" class="visually-hidden">Preencha o formulário abaixo para criar seu cartão fidelidade digital.</p>
+          
           <div class="form-group">
-            <label for="name">Nome Completo</label>
-            <input type="text" id="name" name="name" required>
+            <label for="name" data-i18n="register.form.name">Nome Completo</label>
+            <input type="text" id="name" name="name" required data-i18n-attr="placeholder:register.form.name" aria-required="true">
           </div>
           <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email" data-i18n="register.form.email">E-mail</label>
+            <input type="email" id="email" name="email" required data-i18n-attr="placeholder:register.form.email" aria-required="true">
           </div>
           <div class="form-group">
-            <label for="phone">Telefone</label>
-            <input type="tel" id="phone" name="phone" required>
+            <label for="phone" data-i18n="register.form.phone">Telefone</label>
+            <input type="tel" id="phone" name="phone" required data-i18n-attr="placeholder:register.form.phone" aria-required="true">
           </div>
           <div class="form-group">
-            <label for="birthdate">Data de Nascimento</label>
-            <input type="date" id="birthdate" name="birthdate" required>
+            <label for="birthdate" data-i18n="register.form.birthdate">Data de Nascimento</label>
+            <input type="date" id="birthdate" name="birthdate" required aria-required="true">
           </div>
           <div class="form-group checkbox">
-            <input type="checkbox" id="terms" name="terms" required>
-            <label for="terms">Concordo com os termos e condições</label>
+            <input type="checkbox" id="terms" name="terms" required aria-required="true">
+            <label for="terms" data-i18n="register.form.terms">Concordo com os termos e condições</label>
           </div>
-          <button type="submit" class="submit-button">Cadastrar</button>
+          <button type="submit" class="submit-button" data-i18n="register.form.submit">Cadastrar</button>
         </form>
       </div>
     </section>
 
-    <section id="member-card" class="member-card hidden">
+    <section id="member-card" class="member-card hidden" aria-labelledby="card-title">
       <div class="container">
-        <h2>Seu Cartão Member Club</h2>
-        <div class="card">
+        <h2 id="card-title" data-i18n="memberCard.title">Seu Cartão Member Club</h2>
+        <div class="card" id="card-container" role="img" aria-label="Cartão de fidelidade">
           <div class="card-header">
             <img src="assets/images/logo.svg" alt="Member Club Logo">
-            <span class="card-type">Premium</span>
+            <span class="card-type" data-i18n="memberCard.cardType">Premium</span>
           </div>
           <div class="card-body">
-            <h3 id="card-name">Nome do Membro</h3>
+            <h3 id="card-name" data-i18n="memberCard.memberName">Nome do Membro</h3>
             <p id="card-number">0000 0000 0000 0000</p>
             <div class="card-points">
-              <span>Pontos:</span>
+              <span data-i18n="memberCard.points">Pontos:</span>
               <span id="points-value">0</span>
             </div>
+            <div id="card-qr-code" class="card-qrcode" aria-label="QR Code do cartão"></div>
           </div>
           <div class="card-footer">
-            <p>Válido até: <span id="valid-until">00/00/0000</span></p>
+            <p><span data-i18n="memberCard.validUntil">Válido até:</span> <span id="valid-until">00/00/0000</span></p>
           </div>
         </div>
         <div class="card-controls">
-          <button id="add-points" class="card-button">Adicionar Pontos</button>
-          <button id="use-points" class="card-button">Utilizar Pontos</button>
+          <button id="add-points" class="card-button" data-i18n="memberCard.actions.addPoints">Adicionar Pontos</button>
+          <button id="use-points" class="card-button" data-i18n="memberCard.actions.usePoints">Utilizar Pontos</button>
         </div>
       </div>
     </section>
 
-    <section id="transaction-history" class="transaction-history hidden">
+    <section id="transaction-history" class="transaction-history hidden" aria-labelledby="transactions-title">
       <div class="container">
-        <h2>Histórico de Transações</h2>
+        <h2 id="transactions-title" data-i18n="transactions.title">Histórico de Transações</h2>
         
-        <div class="transactions-tabs">
-          <button class="tab-button active" data-tab="all">Todas</button>
-          <button class="tab-button" data-tab="add">Adições</button>
-          <button class="tab-button" data-tab="use">Utilizações</button>
+        <div class="transactions-tabs" role="tablist">
+          <button class="tab-button active" data-tab="all" data-i18n="transactions.tabs.all" role="tab" aria-selected="true" aria-controls="tab-all">Todas</button>
+          <button class="tab-button" data-tab="add" data-i18n="transactions.tabs.add" role="tab" aria-selected="false" aria-controls="tab-add">Adições</button>
+          <button class="tab-button" data-tab="use" data-i18n="transactions.tabs.use" role="tab" aria-selected="false" aria-controls="tab-use">Utilizações</button>
         </div>
         
         <div class="transactions-list">
-          <div class="empty-state hidden">
-            <p>Nenhuma transação registrada ainda.</p>
+          <div id="empty-state" class="empty-state hidden" role="status">
+            <p data-i18n="transactions.empty">Nenhuma transação registrada ainda.</p>
           </div>
           
-          <table class="transactions-table">
-            <thead>
-              <tr>
-                <th>Data</th>
-                <th>Tipo</th>
-                <th>Pontos</th>
-                <th>Descrição</th>
-              </tr>
-            </thead>
-            <tbody id="transactions-body">
-              <!-- As transações serão inseridas aqui dinamicamente -->
-            </tbody>
-          </table>
+          <div id="tab-all" role="tabpanel" aria-labelledby="tab-all">
+            <table class="transactions-table" aria-label="Tabela de transações">
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="transactions.table.date">Data</th>
+                  <th scope="col" data-i18n="transactions.table.type">Tipo</th>
+                  <th scope="col" data-i18n="transactions.table.points">Pontos</th>
+                  <th scope="col" data-i18n="transactions.table.description">Descrição</th>
+                </tr>
+              </thead>
+              <tbody id="transactions-body">
+                <!-- As transações serão inseridas aqui dinamicamente -->
+              </tbody>
+            </table>
+          </div>
+          
+          <div id="tab-add" role="tabpanel" aria-labelledby="tab-add" class="hidden">
+            <!-- Conteúdo da aba de adições -->
+          </div>
+          
+          <div id="tab-use" role="tabpanel" aria-labelledby="tab-use" class="hidden">
+            <!-- Conteúdo da aba de utilizações -->
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <div class="container">
-      <p>&copy; 2025 Member Club. Todos os direitos reservados.</p>
+      <p data-i18n="footer.copyright">&copy; 2025 Member Club. Todos os direitos reservados.</p>
     </div>
   </footer>
 
+  <div id="notifications-container" role="status" aria-live="polite" class="notifications-container"></div>
+
+  <!-- QRCode library via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  
+  <script src="js/i18n.js" type="module"></script>
+  <script src="js/theme.js" type="module"></script>
   <script src="js/main.js" type="module"></script>
 </body>
 </html> 

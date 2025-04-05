@@ -20,6 +20,46 @@ export function formatDate(date) {
 }
 
 /**
+ * Gera um número de cartão único com 16 dígitos
+ * @returns {string} Número de cartão gerado
+ */
+export function generateCardNumber() {
+  // Prefixo do cartão
+  const prefix = '8350';
+  
+  // Gerar 11 dígitos aleatórios
+  let cardNumber = prefix;
+  for (let i = 0; i < 11; i++) {
+    cardNumber += Math.floor(Math.random() * 10);
+  }
+  
+  // Adicionar dígito verificador (algoritmo de Luhn)
+  let sum = 0;
+  let double = false;
+  
+  // Loop pelos dígitos de trás para frente
+  for (let i = cardNumber.length - 1; i >= 0; i--) {
+    let digit = parseInt(cardNumber.charAt(i));
+    
+    if (double) {
+      digit *= 2;
+      if (digit > 9) {
+        digit -= 9;
+      }
+    }
+    
+    sum += digit;
+    double = !double;
+  }
+  
+  // Calcular dígito verificador
+  const checkDigit = (sum * 9) % 10;
+  
+  // Retornar número completo do cartão
+  return cardNumber + checkDigit;
+}
+
+/**
  * Valida os dados do formulário
  * @param {Object} formData - Dados do formulário
  * @returns {boolean} Resultado da validação

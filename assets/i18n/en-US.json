@@ -1,0 +1,111 @@
+{
+  "common": {
+    "appName": "Member Club",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "error": "Error",
+    "success": "Success"
+  },
+  "app": {
+    "name": "Member Club"
+  },
+  "nav": {
+    "home": "Home",
+    "benefits": "Benefits",
+    "register": "Register"
+  },
+  "home": {
+    "hero": {
+      "title": "Your Digital Loyalty Card",
+      "subtitle": "Earn points and get exclusive benefits!",
+      "cta": "Start Now"
+    }
+  },
+  "benefits": {
+    "title": "Benefits",
+    "cards": {
+      "points": {
+        "title": "Earn Points",
+        "description": "Get points with every purchase."
+      },
+      "discounts": {
+        "title": "Exclusive Discounts",
+        "description": "Enjoy special discounts for members."
+      },
+      "rewards": {
+        "title": "Redeem for Rewards",
+        "description": "Use your points to claim exclusive rewards."
+      }
+    },
+    "card1": {
+      "title": "Earn Points",
+      "description": "Earn points with every purchase and exchange them for products and services"
+    },
+    "card2": {
+      "title": "Exclusive Discounts",
+      "description": "Members have access to special discounts and exclusive offers"
+    },
+    "card3": {
+      "title": "Special Events",
+      "description": "Get invited to exclusive member-only events"
+    }
+  },
+  "register": {
+    "title": "Register for Member Club",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "birthdate": "Date of Birth",
+      "terms": "I have read and agree to the terms of use",
+      "submit": "Register"
+    }
+  },
+  "memberCard": {
+    "title": "Your Member Card",
+    "cardNumber": "Card Number",
+    "points": "Points",
+    "validUntil": "Valid Until",
+    "cardType": "Card Type",
+    "standard": "Standard",
+    "premium": "Premium",
+    "addPoints": "Add Points",
+    "usePoints": "Use Points",
+    "actions": {
+      "addPoints": "Add Points",
+      "usePoints": "Use Points"
+    }
+  },
+  "transactions": {
+    "title": "Transaction History",
+    "tabs": {
+      "all": "All",
+      "add": "Additions",
+      "use": "Usage"
+    },
+    "table": {
+      "date": "Date",
+      "type": "Type",
+      "points": "Points",
+      "description": "Description"
+    },
+    "empty": "No transactions found",
+    "types": {
+      "add": "Addition",
+      "use": "Usage"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Member Club. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "notifications": {
+    "registerSuccess": "Registration completed successfully!",
+    "addPointsSuccess": "{points} points added successfully!",
+    "usePointsSuccess": "{points} points used successfully!",
+    "error": "An error occurred. Please try again."
+  }
+} 

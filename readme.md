@@ -99,12 +99,11 @@ Este projeto implementa:
 - [x] Simulação de API com Promises/Async-Await
 - [x] Implementação parcial do TypeScript
 - [x] Testes automatizados
-- [ ] Adicionar ESLint e Prettier para padronização de código
-- [ ] Melhorar a acessibilidade da aplicação
-- [ ] Adicionar suporte a múltiplos idiomas
-- [ ] - **Código QR**: Geração de código QR para o cartão fidelidade
-- [ ] - **Personalização de Tema**: Alternância entre tema claro e escuro
-
+- [x] Adicionar ESLint e Prettier para padronização de código
+- [x] Melhorar a acessibilidade da aplicação
+- [x] Adicionar suporte a múltiplos idiomas
+- [x] - Geração de código QR para o cartão fidelidade
+- [x] Alternância entre tema claro e escuro
 
 ## 📚 Conceitos Técnicos Aplicados
 
