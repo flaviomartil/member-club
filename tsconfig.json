@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "outDir": "js",
+    "rootDir": "ts",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationDir": "ts/types"
+  },
+  "include": ["ts/**/*"],
+  "exclude": ["node_modules"]
+} 

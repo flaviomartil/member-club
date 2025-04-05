@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Club - Cartão Fidelidade</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/notifications.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Member Club</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#benefits">Benefícios</a></li>
+          <li><a href="#register">Cadastro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <h2>Seu Cartão Fidelidade Digital</h2>
+        <p>Acumule pontos e ganhe benefícios exclusivos!</p>
+        <button class="cta-button">Comece Agora</button>
+      </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+      <div class="container">
+        <h2>Benefícios do Member Club</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <img src="assets/icons/points.svg" alt="Pontos">
+            <h3>Acumule Pontos</h3>
+            <p>Ganhe pontos a cada compra realizada.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="assets/icons/discount.svg" alt="Descontos">
+            <h3>Descontos Exclusivos</h3>
+            <p>Aproveite descontos especiais para membros.</p>
+          </div>
+          <div class="benefit-card">
+            <img src="assets/icons/rewards.svg" alt="Prêmios">
+            <h3>Troque por Prêmios</h3>
+            <p>Use seus pontos para resgatar prêmios exclusivos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="register" class="register">
+      <div class="container">
+        <h2>Cadastre-se no Member Club</h2>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="birthdate">Data de Nascimento</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+          </div>
+          <div class="form-group checkbox">
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">Concordo com os termos e condições</label>
+          </div>
+          <button type="submit" class="submit-button">Cadastrar</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="member-card" class="member-card hidden">
+      <div class="container">
+        <h2>Seu Cartão Member Club</h2>
+        <div class="card">
+          <div class="card-header">
+            <img src="assets/images/logo.svg" alt="Member Club Logo">
+            <span class="card-type">Premium</span>
+          </div>
+          <div class="card-body">
+            <h3 id="card-name">Nome do Membro</h3>
+            <p id="card-number">0000 0000 0000 0000</p>
+            <div class="card-points">
+              <span>Pontos:</span>
+              <span id="points-value">0</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <p>Válido até: <span id="valid-until">00/00/0000</span></p>
+          </div>
+        </div>
+        <div class="card-controls">
+          <button id="add-points" class="card-button">Adicionar Pontos</button>
+          <button id="use-points" class="card-button">Utilizar Pontos</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Member Club. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" type="module"></script>
+</body>
+</html> 

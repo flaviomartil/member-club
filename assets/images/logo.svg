@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <rect width="200" height="60" rx="10" fill="#3498db" />
+  <path d="M30 25 L40 15 L50 25 L40 35 Z" fill="#fff" />
+  <path d="M55 15 L65 15 L65 35 L55 35 Z" fill="#fff" />
+  <path d="M70 15 L80 15 L80 35 L70 35 Z" fill="#fff" />
+  <path d="M85 25 C85 20 90 15 95 15 C100 15 105 20 105 25 C105 30 100 35 95 35 C90 35 85 30 85 25 Z" fill="#fff" />
+  <path d="M110 15 L120 15 L120 35 L110 35 Z" fill="#fff" />
+  <path d="M125 15 L135 15 L135 25 L145 15 L157 15 L142 28 L160 35 L148 35 L135 28 L135 35 L125 35 Z" fill="#fff" />
+  <text x="35" y="52" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">MEMBER CLUB</text>
+</svg> 

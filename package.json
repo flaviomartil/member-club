@@ -1,0 +1,17 @@
+{
+  "name": "member-club",
+  "version": "1.0.0",
+  "description": "Aplicação de Cartão Fidelidade Web",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "typescript": "^5.0.4"
+  }
+} 

@@ -1,0 +1,69 @@
+/* Media Queries para Responsividade */
+
+/* Tablets */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+  }
+  
+  header h1 {
+    margin-bottom: 15px;
+  }
+  
+  nav ul {
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 0 10px;
+  }
+  
+  .hero {
+    padding: 60px 0;
+  }
+  
+  .hero h2 {
+    font-size: 2rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+  
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefit-card {
+    padding: 20px;
+  }
+  
+  form {
+    padding: 20px;
+  }
+  
+  .card-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .card-button {
+    width: 100%;
+  }
+} 
